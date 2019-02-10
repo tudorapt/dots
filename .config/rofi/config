@@ -1,0 +1,20 @@
+rofi.font: OpenSans SemiBold 11
+rofi.width: 35
+rofi.lines: 10
+
+rofi.columns: 1
+rofi.padding: 10
+rofi.hide-scrollbar: true
+
+! bg:    background color row
+! fg:    text color
+! bgalt: background color alternating row
+! hlfg:  foreground color selected row
+! hlbg:  background color selected row
+
+! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
+rofi.color-normal: #0E1118, #97aebd, #0E1118, #aabfcf, #0E1118
+rofi.color-urgent: #0E1118, #d6b48d, #22231D, #d6b48d, #97aebd
+rofi.color-active: #0E1118, #DE636E, #0E1118, #DE636E, #0E1118
+!                  'background', 'border', 'separator'
+rofi.color-window: #0E1118, #aabfcf, #0E1118

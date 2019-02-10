@@ -1,0 +1,105 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+    colors = true
+    interval = 5
+}
+
+order += "spotify"
+order += "volume_status"
+order += "diskdata os"
+order += "sysdata"
+order += "wifi"
+order += "backlight"
+order += "battery_level"
+order += "clock"
+
+backlight {
+    format = " {level} %"
+    brightness_delta = 1
+    cache_timeout = 30
+    separator_block_width = 25
+}
+
+wifi {
+    format = " {ssid} {signal_percent}"
+    color_good = "$fg"
+    color_degraded = "#ffb52a"
+    color_bad = "#bb0a21"
+
+    cache_timeout = 10
+    separator_block_width = 25
+}
+
+spotify {
+    button_next = 4
+    button_play_pause = 1
+    button_previous = 5
+    format = " {artist} - {title}"
+    color_playing = "#14cc60"
+    color_paused = "#fdf0d5"
+    format_down = ""
+    cache_timeout = 0
+    separator_block_width = 25
+}
+
+diskdata os{
+    disk = none
+    format = "{used_percent}% {free} GB "
+    format_space = "[\?min_length=3 {value:.0f}]"
+}
+
+sysdata{
+    format ='[ RAM: {mem_used_percent:.0f}% - {mem_used:.2f} GB]'
+    cache_timeout = 5
+    separator_block_width = 25
+}
+
+volume_status {
+    format = " {percentage}"
+    format_muted = " MUTE"
+    volume_delta = 10
+    max_volume = 100
+        thresholds = [
+            (0, "#bb0a21"),
+            (1, "#ffb52a"),
+            (30, "$fg"),
+    ]
+    color_muted = "#bb0a21"
+    separator_block_width = 25
+}
+
+battery_level {
+    charging_character = ""
+    cache_timeout = 60
+    format = "{icon} {percent}%"
+    blocks = ""
+#    notify_low_level = 20
+    color = "$fg"
+    color_bad = "#bb0a21"
+    color_charging = "#275dad"
+    color_degraded = "#ffb52a"
+    color_good = "$fg"
+    threshold_degraded = 40
+    threshold_bad = 20
+    separator_block_width = 25
+}
+
+clock{
+    format = "{Local}"
+    format_time = " %H:%M     %a %d.%m.%Y "
+}
+
+net_rate{
+    format = "{down} {up} "
+    hide_if_zero = 0
+    precision = 0
+    cache_timeout = 5
+    separator_block_width = 25
+}
