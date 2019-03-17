@@ -1,0 +1,35 @@
+;==========================================================
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;==========================================================
+
+[colors]
+include-file = ~/.config/polybar/colors/colors
+
+[bar/main]
+include-file = ~/.config/polybar/bars/main
+
+[module/i3]
+include-file = ~/.config/polybar/modules/i3
+
+[module/date]
+include-file = ~/.config/polybar/modules/date
+
+[module/pulseaudio-tail]
+include-file = ~/.config/polybar/modules/pulseaudio-tail
+
+[module/battery-combined-udev]
+include-file = ~/.config/polybar/modules/battery-combined-udev
+
+[module/player-mpris-tail]
+include-file = ~/.config/polybar/modules/player-mpris-tail
+
+[module/network]
+include-file = ~/.config/polybar/modules/network
+
+[module/backlight]
+include-file = ~/.config/polybar/modules/backlight

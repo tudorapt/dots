@@ -1,0 +1,3 @@
+type =custom/script
+exec = ~/.config/polybar/custom/battery-combined-udev.sh
+tail = true

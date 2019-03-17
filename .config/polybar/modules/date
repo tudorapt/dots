@@ -1,0 +1,6 @@
+type = internal/date
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time"
+; for details on how to format the date string
+date = %a %d-%b-%Y
+time = %H:%M
+label = %time%    %date%

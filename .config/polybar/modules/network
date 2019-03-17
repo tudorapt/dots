@@ -1,0 +1,18 @@
+type = internal/network
+interface = wlp5s0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices have an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+format-connected = <label-connected>
+label-connected =  %signal% %essid%
+
+interval = 5

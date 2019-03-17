@@ -1,0 +1,13 @@
+background = #05181D
+background-alt = #05181D
+
+foreground = #aec3c0
+foreground-alt = #aec3c0
+
+primary = #ffb52a
+secondary = #e60053
+
+alert = #bd2c40
+
+accent = #aec3c0
+accent-alt = #aec3c0
