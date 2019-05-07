@@ -138,38 +138,33 @@ bindsym $mod+r mode "resize"
 
 # Colors
 
-set_from_resource $bg i3wm.color0
-set_from_resource $fg i3wm.color7
-set_from_resource $acc1 i3wm.color9
-set_from_resource $acc2 i3wm.color2
-
 # class                 border  backgr. text indicator child_border
-client.focused          $fg     $fg     $bg  $fg       $fg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.focused          #acb6bc     #acb6bc     #110410  #acb6bc       #acb6bc
+client.focused_inactive #110410     #110410     #acb6bc  #110410       #110410
+client.unfocused        #110410     #110410     #acb6bc  #110410       #110410
+client.urgent           #110410     #110410     #acb6bc  #110410       #110410
+client.placeholder      #110410     #110410     #acb6bc  #110410       #110410
 
-client.background       $bg
+client.background       #110410
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command py3status -c ~/.config/i3/py3status/statusconfig
-    position top
-    font pango:Open Sans SemiBold, FontAwesome 11
-    colors {
-        background $bg
-        statusline $fg
-        separator $fg
-        #class             border  backgr. text     indicator child_border
-        focused_workspace  $fg     $fg     $bg
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace $bg     $bg     $fg
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       $fg     $fg     $bg
-    }
-}
+# bar {
+#     status_command py3status -c ~/.config/i3/py3status/statusconfig
+#     position top
+#     font pango:Open Sans SemiBold, FontAwesome 11
+#     colors {
+#         background #110410
+#         statusline #acb6bc
+#         separator #acb6bc
+#         #class             border  backgr. text     indicator child_border
+#         focused_workspace  #acb6bc     #acb6bc     #110410
+#         active_workspace   #333333 #5f676a #ffffff
+#         inactive_workspace #110410     #110410     #acb6bc
+#         urgent_workspace   #2f343a #900000 #ffffff
+#         binding_mode       #acb6bc     #acb6bc     #110410
+#     }
+# }
 
 # No window titlebars
 for_window [class="^.*"] border pixel 1
@@ -218,6 +213,20 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# FN keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+bindsym XF86AudioLowerVolume exec ~/.config/polybar/custom/pulseaudio-tail.sh --down
+bindsym XF86AudioRaiseVolume exec ~/.config/polybar/custom/pulseaudio-tail.sh --up
+bindsym XF86AudioMute exec ~/.config/polybar/custom/pulseaudio-tail.sh --mute
+
+bindsym XF86Display exec --no-startup-id arandr
+
+#bindsym mod1+space exec playerctl play-pause
+#bindsym mod1+right exec playerctl previous
+#bindsym mod1+left exec playerctl next
+
 # Switch ESC with Caps Lock
 exec --no-startup-id setxkbmap -option "caps:swapescape"
 
@@ -226,7 +235,7 @@ exec_always ~/.config/i3/i3scripts/autoname_workspaces.py &
 bindsym $mod+Shift+n exec ~/.config/i3/i3scripts/rename_workspace.py &
 
 # wpgtk
-exec --no-startup-id wpg -R
+exec --no-startup-id /home/nexus/.config/wpg/wp_init.sh
 
 # Lock screen
 bindsym $mod+backslash exec "i3lock-fancy"
@@ -236,5 +245,11 @@ exec --no-startup-id udiskie
 
 # Dunst
 exec --no-startup-id dunst
+
+# Start Polybar
+exec_always --no-startup-id ./.config/polybar/launch.sh
+
+# rofi shutdown script
+bindsym $mod+x exec --no-startup-id ~/.config/rofi/rofi-shutdown.sh
 
 # MOD + |}{""} launch commonly used apps

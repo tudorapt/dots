@@ -13,8 +13,8 @@ rofi.hide-scrollbar: true
 ! hlbg:  background color selected row
 
 ! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
-rofi.color-normal: #0E1118, #97aebd, #0E1118, #aabfcf, #0E1118
-rofi.color-urgent: #0E1118, #d6b48d, #22231D, #d6b48d, #97aebd
-rofi.color-active: #0E1118, #DE636E, #0E1118, #DE636E, #0E1118
+rofi.color-normal: #110410, #acb6bc, #110410, #acb6bc, #110410
+rofi.color-urgent: #110410, #d6b48d, #22231D, #d6b48d, #97aebd
+rofi.color-active: #110410, #DE636E, #110410, #DE636E, #110410
 !                  'background', 'border', 'separator'
-rofi.color-window: #0E1118, #aabfcf, #0E1118
+rofi.color-window: #110410, #acb6bc, #110410

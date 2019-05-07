@@ -29,6 +29,7 @@
 # To:
 #   bindsym $mod+1 workspace number 1
 
+import argparse
 import i3ipc
 import logging
 import signal
@@ -48,22 +49,69 @@ from util import *
 # xprop (https://linux.die.net/man/1/xprop). Run `xprop | grep WM_CLASS`
 # then click on the application you want to inspect.
 WINDOW_ICONS = {
-    'google-chrome': fa.icons['chrome'],
-    'urxvt': fa.icons['terminal'],
-    'code-oss': fa.icons['code'],
-    'mupdf': fa.icons['file-pdf'],
+    'alacritty': fa.icons['terminal'],
+    'atom': fa.icons['code'],
+    'banshee': fa.icons['play'],
+    'blender': fa.icons['cube'],
+    'chromium': fa.icons['chrome'],
+    'cura': fa.icons['cube'],
+    'darktable': fa.icons['image'],
+    'discord': fa.icons['comment'],
+    'eclipse': fa.icons['code'],
+    'vscodium': fa.icons['code'],
+    'eog': fa.icons['image'],
+    'evince': fa.icons['file-pdf'],
+    'evolution': fa.icons['envelope'],
     'feh': fa.icons['image'],
+    'file-roller': fa.icons['compress'],
     'firefox': fa.icons['firefox'],
-    'spotify': fa.icons['spotify'],
-    'thunar': fa.icons['folder'],
-    'zenity': fa.icons['window-maximize'],
-    'deluge': fa.icons['tint'],
-    'mpv': fa.icons['film'],
+    'firefox-esr': fa.icons['firefox'],
+    'gimp-2.8': fa.icons['image'],
+    'gnome-control-center': fa.icons['toggle-on'],
+    'gnome-terminal-server': fa.icons['terminal'],
+    'google-chrome': fa.icons['chrome'],
+    'gpick': fa.icons['eye-dropper'],
+    'imv': fa.icons['image'],
+    'java': fa.icons['code'],
+    'jetbrains-studio': fa.icons['code'],
+    'keybase': fa.icons['key'],
+    'kicad': fa.icons['microchip'],
+    'kitty': fa.icons['terminal'],
+    'libreoffice': fa.icons['file-alt'],
+    'lua5.1': fa.icons['moon'],
+    'mpv': fa.icons['tv'],
+    'mupdf': fa.icons['file-pdf'],
+    'mysql-workbench-bin': fa.icons['database'],
+    'nautilus': fa.icons['copy'],
+    'nemo': fa.icons['copy'],
+    'openscad': fa.icons['cube'],
     'pavucontrol': fa.icons['volume-up'],
+    'postman': fa.icons['space-shuttle'],
+    'rhythmbox': fa.icons['play'],
+    'slack': fa.icons['slack'],
+    'slic3r.pl': fa.icons['cube'],
+    'spotify': fa.icons['music'],  # could also use the 'spotify' icon
+    'steam': fa.icons['steam'],
+    'subl': fa.icons['file-alt'],
+    'subl3': fa.icons['file-alt'],
+    'sublime_text': fa.icons['file-alt'],
+    'thunar': fa.icons['copy'],
+    'thunderbird': fa.icons['envelope'],
+    'totem': fa.icons['play'],
+    'urxvt': fa.icons['terminal'],
+    'xfce4-terminal': fa.icons['terminal'],
+    'xournal': fa.icons['file-alt'],
+    'yelp': fa.icons['code'],
+    'zenity': fa.icons['window-maximize'],
 }
 
 # This icon is used for any application not in the list above
 DEFAULT_ICON = '*'
+
+# Global setting that determines whether workspaces will be automatically
+# re-numbered in ascending order with a "gap" left on each monitor. This is
+# overridden via command-line flag.
+RENUMBER_WORKSPACES = True
 
 
 def ensure_window_icons_lowercase():
@@ -105,8 +153,8 @@ def rename_workspaces(i3):
             n += 1
         prev_output = ws_info.output
 
-        # renumber workspace
-        new_num = n
+        # optionally renumber workspace
+        new_num = n if RENUMBER_WORKSPACES else name_parts.num
         n += 1
 
         new_name = construct_workspace_name(
@@ -135,6 +183,20 @@ def on_exit(i3):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description=
+        "Rename workspaces dynamically to show icons for running programs.")
+    parser.add_argument(
+        '--norenumber_workspaces',
+        action='store_true',
+        default=False,
+        help=
+        "Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order."
+    )
+    args = parser.parse_args()
+
+    RENUMBER_WORKSPACES = not args.norenumber_workspaces
+
     logging.basicConfig(level=logging.INFO)
 
     ensure_window_icons_lowercase()

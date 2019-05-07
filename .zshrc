@@ -97,6 +97,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias v="vscodium"
+
 #Package Manager & AUR Helper
 alias in="sudo pacman -S"
 alias un="sudo pacman -Rns"
@@ -110,3 +112,6 @@ alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 # WPGTK
 (cat ~/.config/wpg/sequences &)
+
+# Add to Path
+export PATH=$PATH:/home/nexus/.local/bin # pipx

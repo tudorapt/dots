@@ -1,8 +1,0 @@
-i3lock-color
-i3lock-fancy-git
-nerd-fonts-dejavu-complete
-nerd-fonts-hack
-spotify
-ttf-font-awesome-4
-ttf-ms-fonts
-wpgtk-git
