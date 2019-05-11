@@ -139,13 +139,13 @@ bindsym $mod+r mode "resize"
 # Colors
 
 # class                 border  backgr. text indicator child_border
-client.focused          #acb6bc     #acb6bc     #110410  #acb6bc       #acb6bc
-client.focused_inactive #110410     #110410     #acb6bc  #110410       #110410
-client.unfocused        #110410     #110410     #acb6bc  #110410       #110410
-client.urgent           #110410     #110410     #acb6bc  #110410       #110410
-client.placeholder      #110410     #110410     #acb6bc  #110410       #110410
+client.focused          #98aebd     #98aebd     #050814  #98aebd       #98aebd
+client.focused_inactive #050814     #050814     #98aebd  #050814       #050814
+client.unfocused        #050814     #050814     #98aebd  #050814       #050814
+client.urgent           #050814     #050814     #98aebd  #050814       #050814
+client.placeholder      #050814     #050814     #98aebd  #050814       #050814
 
-client.background       #110410
+client.background       #050814
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -154,15 +154,15 @@ client.background       #110410
 #     position top
 #     font pango:Open Sans SemiBold, FontAwesome 11
 #     colors {
-#         background #110410
-#         statusline #acb6bc
-#         separator #acb6bc
+#         background #050814
+#         statusline #98aebd
+#         separator #98aebd
 #         #class             border  backgr. text     indicator child_border
-#         focused_workspace  #acb6bc     #acb6bc     #110410
+#         focused_workspace  #98aebd     #98aebd     #050814
 #         active_workspace   #333333 #5f676a #ffffff
-#         inactive_workspace #110410     #110410     #acb6bc
+#         inactive_workspace #050814     #050814     #98aebd
 #         urgent_workspace   #2f343a #900000 #ffffff
-#         binding_mode       #acb6bc     #acb6bc     #110410
+#         binding_mode       #98aebd     #98aebd     #050814
 #     }
 # }
 
@@ -251,5 +251,3 @@ exec_always --no-startup-id ./.config/polybar/launch.sh
 
 # rofi shutdown script
 bindsym $mod+x exec --no-startup-id ~/.config/rofi/rofi-shutdown.sh
-
-# MOD + |}{""} launch commonly used apps

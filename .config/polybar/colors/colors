@@ -1,13 +1,13 @@
-background = #110410
-background-alt = #110410
+background = #050814
+background-alt = #050814
 
-foreground = #acb6bc
-foreground-alt = #acb6bc
+foreground = #98aebd
+foreground-alt = #98aebd
 
 primary = #ffb52a
 secondary = #e60053
 
 alert = #bd2c40
 
-accent = #acb6bc
-accent-alt = #acb6bc
+accent = #98aebd
+accent-alt = #98aebd
