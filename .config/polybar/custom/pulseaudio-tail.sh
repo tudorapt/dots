@@ -27,7 +27,7 @@ volume_print() {
     muted=$(pamixer --sink $sink --get-mute)
 
     if [ "$muted" = true ]; then
-        echo "%{F#f00} MUTE%{F-}"
+        echo " MUTE"
     else
         echo "$icon $(pamixer --sink $sink --get-volume)"
     fi
